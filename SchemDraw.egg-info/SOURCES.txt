@@ -1,0 +1,11 @@
+README.txt
+setup.py
+SchemDraw/__init__.py
+SchemDraw/elements.py
+SchemDraw/logic.py
+SchemDraw/schemdraw.py
+SchemDraw.egg-info/PKG-INFO
+SchemDraw.egg-info/SOURCES.txt
+SchemDraw.egg-info/dependency_links.txt
+SchemDraw.egg-info/requires.txt
+SchemDraw.egg-info/top_level.txt

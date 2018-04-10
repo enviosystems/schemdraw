@@ -418,13 +418,6 @@ Other:
         self.path_def = [np.array(p) for p in self.defn.get('paths', [])]
         self.paths = []   # Translated paths
 
-        # New attribute for paths, enviosystems
-        if 'id' in kwargs:
-            self.id = str(kwargs['id'])
-        else:
-            self.id = 'no id'
-        #--------------------------
-
         if len(self.path_def) == 0:
             start = np.array([0, 0])
             end = np.array([0, 0])
@@ -719,11 +712,9 @@ Other:
             ax        : matplotlib axis
             showframe : Draw the axis frame. Useful for debugging.
         """
-
-        for index, path in enumerate(self.paths):
-            gid = None if index != 1 else self.id
+        for path in self.paths:
             ax.plot(path[:, 0], path[:, 1], color=self.color, lw=self.lw,
-                        solid_capstyle='round', ls=self.ls, gid=gid)
+                    solid_capstyle='round', ls=self.ls)
 
         for s in self.shapes:
             if s.get('shape') == 'circle':
@@ -801,4 +792,4 @@ Other:
             va = align[1]
             ax.text(loc[0], loc[1], label, transform=ax.transData,
                     horizontalalignment=ha, verticalalignment=va,
-                    fontsize=size, gid=self.id)
+                    fontsize=size)
