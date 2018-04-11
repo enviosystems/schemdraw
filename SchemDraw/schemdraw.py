@@ -728,13 +728,14 @@ Other:
 
         for s in self.shapes:
             if s.get('shape') == 'circle':
+                gid = None if index != 1 else self.id
                 xy = np.array(s.get('center', [0, 0]))
                 xy = self.translate(xy - self.ofst)
                 rad = s.get('radius', 1) * self.z
                 fill = s.get('fill', False)
                 fillcolor = s.get('fillcolor', self.color)
                 circ = plt.Circle(xy=xy, radius=rad, ec=self.color,
-                                  fc=fillcolor, fill=fill, zorder=3, lw=self.lw)
+                                  fc=fillcolor, fill=fill, zorder=3, lw=self.lw, gid=gid)
                 ax.add_patch(circ)
             elif s.get('shape') == 'poly':
                 xy = np.array(s.get('xy', [[0, 0]]))
