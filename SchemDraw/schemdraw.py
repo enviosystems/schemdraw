@@ -801,7 +801,6 @@ Other:
             loc = self.translate(np.array(loc))
             ha = align[0]
             va = align[1]
-            print('to test if is executed')
             ax.text(loc[0], loc[1], label, transform=ax.transData,
                     horizontalalignment=ha, verticalalignment=va,
-                    fontsize=size, color='green')
+                    fontsize=size)
