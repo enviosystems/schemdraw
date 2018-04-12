@@ -22,6 +22,7 @@ mpl.rcParams['figure.subplot.top']    = 0.90
 mpl.rcParams['font.family'] = 'sans-serif'
 mpl.rcParams['mathtext.fontset'] = 'stixsans'
 mpl.rcParams['mathtext.default'] = 'regular'
+mpl.rcParams['svg.fonttype'] = 'none'
 
 #--------------------------------------------------------------------
 # Define transformation matricies
