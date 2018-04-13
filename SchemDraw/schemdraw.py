@@ -420,10 +420,8 @@ Other:
         self.paths = []   # Translated paths
 
         # New attribute for paths, enviosystems
-        if 'id' in kwargs:
-            self.id = str(kwargs['id'])
-        else:
-            self.id = 'no id'
+        self.id = 'no_id' if 'id' not in kwargs else str(kwargs['id'])
+        self.axis_pos = 0 if 'axis_pos' not in kwargs else int(kwargs['axis_pos'])
         #--------------------------
 
         if len(self.path_def) == 0:
@@ -722,14 +720,14 @@ Other:
         """
         # enviosystems
         for index, path in enumerate(self.paths):
-            gid = None if index != 1 else self.id
+            gid = None if index != self.axis_pos else self.id
             ax.plot(path[:, 0], path[:, 1], color=self.color, lw=self.lw,
                         solid_capstyle='round', ls=self.ls, gid=gid)
         #-------------
 
         for s in self.shapes:
             if s.get('shape') == 'circle':
-                gid = None if index != 1 else self.id
+                gid = None if index != self.axis_pos else self.id
                 xy = np.array(s.get('center', [0, 0]))
                 xy = self.translate(xy - self.ofst)
                 rad = s.get('radius', 1) * self.z
@@ -759,7 +757,7 @@ Other:
 
                 angle = s.get('angle', self.theta)
                 arc = Arc(xy, width=w, height=h, theta1=th1,
-                          theta2=th2, angle=angle, color=self.color, lw=self.lw)
+                          theta2=th2, angle=angle, color=self.color, lw=self.lw, gid=self.id)
                 ax.add_patch(arc)
 
                 # Add an arrowhead to the arc
