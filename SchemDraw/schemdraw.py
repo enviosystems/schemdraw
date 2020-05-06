@@ -591,7 +591,7 @@ Other:
                    (['center', 'left', 'right'], ['center', 'top', 'bottom'])
             size: font size
         """
-        if isinstance(ofst, list) and loc is not 'center':
+        if isinstance(ofst, list) and loc != 'center':
             raise TypeError('Offset must not be list for loc=%s'%loc)
 
         if ofst is None:
